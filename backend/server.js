@@ -37,8 +37,9 @@ server.delete("/", (req, res) => {
 });
 
 server.put("/", (req, res) => {
-  const status = req.body;
-  changeStatus(status.id, status.status);
+  const todo = req.body;
+  changeStatus(todo.id);
+
   res.end();
 });
 

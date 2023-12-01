@@ -3,7 +3,7 @@ import fs from "fs/promises";
 export const setup = () => {
   fs.access("./todos.json")
     .then()
-    .catch((err) => fs.writeFile("./todos.json", "[]"));
+    .catch(() => fs.writeFile("./todos.json", "[]"));
 };
 
 export const getAllTodos = () => {
@@ -28,17 +28,20 @@ export const deleteTodo = (id) => {
     .then((data) => fs.writeFile("./todos.json", JSON.stringify(data)));
 };
 
-export const changeStatus = (todoID, newStatus) => {
+export const changeStatus = (todoID) => {
   getAllTodos()
     .then((dataArray) => {
-      let ind;
       let changeThis = dataArray.filter((elt, index) => {
-        ind = index;
         return elt.id === todoID;
       });
 
-      changeThis[0].status = newStatus;
-      dataArray.splice(ind, 1, changeThis[0]);
+      changeThis[0].status = "done";
+
+      dataArray.splice(
+        dataArray.findIndex((val) => val === changeThis[0]),
+        1,
+        changeThis[0]
+      );
       return dataArray;
     })
     .then((newArray) => fs.writeFile("./todos.json", JSON.stringify(newArray)));

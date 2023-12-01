@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4, v4 } from "uuid";
 
 const AddTodo = ({ setRefresher }) => {
   let todoInput = useRef();
-  const [count, setCount] = useState(0);
 
   const addTodo = () => {
-    setCount((count) => count + 1);
     let todoObj = {
-      id: count,
+      id: v4(),
       content: todoInput.current.value,
-      status: "not done",
+      status: "undone",
     };
 
     fetch("http://localhost:1337/", {

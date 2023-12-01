@@ -1,7 +1,1 @@
-[
-  { "id": "count", "content": "Waschen", "status": "not done" },
-  { "id": 0, "content": "dawd", "status": "not done" },
-  { "id": 2, "content": "ee", "status": "not done" },
-  { "id": 0, "content": "ddaw", "status": "undone" },
-  { "id": 0, "content": "dad", "status": "not done" }
-]
+[{"id":"0bbc6916-b071-40ad-9d5a-de1976547ffd","content":"drei","status":"done"},{"id":"505427cd-65be-4463-94f0-c4835bbdcb9a","content":"Ersde","status":"done"},{"id":"09ab0fe1-5a60-400f-8fb5-2af8dbe2cc42","content":"dad","status":"undone"}]
